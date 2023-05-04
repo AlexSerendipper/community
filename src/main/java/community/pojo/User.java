@@ -19,12 +19,14 @@ public class User {
     private Integer id;
     private String username;
     private String password;
+    // 用于对用户信息加密，让用户密码加上salt后再进行加密，增强可靠性
     private String salt;
     private String email;
-    // 是否为置顶帖
+    // 是否为VIP
     private Integer type;
-    // 是否为精华帖
+    // 是否激活
     private Integer status;
+    // 用户激活码
     private String activationCode;
     // 头像url
     private String headerUrl;

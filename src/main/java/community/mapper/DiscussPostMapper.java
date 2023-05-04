@@ -17,7 +17,7 @@ public interface DiscussPostMapper {
      * @param userId
      * @return
      */
-    List<DiscussPost> selectDiscussPosts(int userId);
+    List<DiscussPost> selectDiscussPosts(int userId,int orderMode);
 
     /**
      * 实现根据ID查询所有帖子记录数
@@ -26,4 +26,36 @@ public interface DiscussPostMapper {
      * @return
      */
     int countDiscussPosts(int userId);
+
+    /**
+     * 新增帖子功能
+     * @param
+     * @return
+     */
+    int insertDiscussPost(DiscussPost discussPost);
+
+    /**
+     * 根据id查询帖子详情
+     * @param id
+     * @return
+     */
+    DiscussPost getDiscussPostById(int id);
+
+    /**
+     * 当添加帖子时，要更新评论的数量
+     * @param id
+     * @param commentCount
+     * @return
+     */
+    int updateCommentCount(int id,int commentCount);
+
+    // 修改帖子 为指定类型（0普通。1置顶）
+    int updateType(int id, int type);
+
+    // 修改帖子 为指定状态（0-正常;1-精华;2-拉黑;）
+    int updateStatus(int id, int status);
+
+    // 修改帖子为指定分数
+    int updateScore(int id, double score);
+
 }

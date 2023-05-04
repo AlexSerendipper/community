@@ -1,3 +1,6 @@
+var DOMAIN = "http://localhost:8080";
+var CONTEXT_PATH = "/community";
+
 window.alert = function(message) {
 	if(!$(".alert-box").length) {
 		$("body").append(
@@ -29,4 +32,18 @@ window.alert = function(message) {
 	
 	$(".alert-box .modal-body p").text(message);
 	$(".alert-box").modal("show");
+}
+
+
+
+// 点击搜索后 搜索帖子
+$(function(){
+	$("#search").click(search);
+});
+
+function search(){
+	var keyword = $("#keyword").val();
+	var newUrl = DOMAIN + CONTEXT_PATH + "/search/" + keyword;
+	$("#searchForm").attr('action',newUrl);
+	$("#searchForm").submit;
 }

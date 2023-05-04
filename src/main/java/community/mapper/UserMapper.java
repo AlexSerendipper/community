@@ -15,4 +15,31 @@ public interface UserMapper {
     * @return
     */
    User getUserById(Integer id);
+
+   /**
+    * 根据用户名查询用户
+    * @param username
+    * @return
+    */
+   User getUserByName(String username);
+
+   /**
+    * 根据邮箱查询用户
+    * @param email
+    * @return
+    */
+   User getUserByEmail(String email);
+
+   /**
+    * 插入用户
+    * @param user
+    * @return
+    */
+   int insertUser(User user);
+
+   int updateStatus(int id, int status);
+
+   int updateHeader(int id, String headerUrl);
+
+   int updatePassword(int id, String password);
 }
